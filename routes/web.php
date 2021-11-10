@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\ProductComponent;
+use App\Http\Livewire\ShopComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('plantilla.index');
-});
+});*/
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -23,15 +28,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::resource('articulos', 'App\Http\Controllers\ArticuloController');
 
-Route::get('/product-details', function () {
-    return view('plantilla.product-details');
-});
-Route::get('/shop-cart', function () {
-    return view('plantilla.shop-cart');
-});
-Route::get('/shop', function () {
-    return view('plantilla.shop');
-});
-Route::get('/checkout', function () {
-    return view('plantilla.checkout');
-});
+Route::get('/', HomeComponent::class);
+Route::get('/product', ProductComponent::class);
+Route::get('/cart', CartComponent::class);
+Route::get('/shop', ShopComponent::class);
+Route::get('/checkout', CheckoutComponent::class);
