@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('plantilla.index');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -22,3 +22,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('articulos', 'App\Http\Controllers\ArticuloController');
+
+Route::get('/product-details', function () {
+    return view('plantilla.product-details');
+});
+Route::get('/shop-cart', function () {
+    return view('plantilla.shop-cart');
+});
+Route::get('/shop', function () {
+    return view('plantilla.shop');
+});
+Route::get('/checkout', function () {
+    return view('plantilla.checkout');
+});
