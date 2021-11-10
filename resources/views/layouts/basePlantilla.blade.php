@@ -49,10 +49,6 @@
             <a href="/"><img src="{{asset('plantilla/img/logo.png')}}" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
-        </div>
     </div>
     <!-- Offcanvas Menu End -->
 
@@ -86,7 +82,7 @@
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <div class="header__right">
+                    <div class="header__left header__menu">
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="#"><span class="icon_heart_alt"></span>
@@ -95,39 +91,44 @@
                             <li><a href="#"><span class="icon_bag_alt"></span>
                                 <div class="tip">2</div>
                             </a></li>
+                            <li>
+                                <a href="#"><span class=""></span>
+                                    <ion-icon name="person-outline"></ion-icon>
+                                </a>
+                                <!--Autentificacion-->
+                                <ul class="dropdown">
+
+                                    @if(Route::has('login'))
+                               
+                                        @auth
+                                            @if(Auth::user()->utype === 'ADM')
+
+                                                <li><a href="#">Mi cuenta ({{Auth::user()->name}})</a></li>
+                                                <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                                <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                                                <form id="logout-form" method="POST" action="{{route('logout')}}">
+                                                    @csrf
+                                                </form>
+                                                
+                                            @else
+                                                <li><a href="#">Mi cuenta ({{Auth::user()->name}})</a></li>
+                                                <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                                <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                                                <form id="logout-form" method="POST" action="{{route('logout')}}">
+                                                    @csrf
+                                                </form>
+                                            @endif
+                                        @else
+                                            <li><a href="{{route('login')}}">Login</a></li>
+                                            <li><a href="{{route('register')}}">Register</a></li>
+                                        @endif
+
+                                    @endif
+                                </ul>
+                                
+                            </li>
                         </ul>
                     
-                        <div class="header__right__auth header__menu ml-4">
-                            
-
-                            @if(Route::has('login'))
-                               
-                                @auth
-                                    @if(Auth::user()->utype === 'ADM')
-
-                                        <a href="#">Mi cuenta ({{Auth::user()->name}})</a>
-                                        <a href="{{route('admin.dashboard')}}">Dashboard</a>
-                                        <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                        <form id="logout-form" method="POST" action="{{route('logout')}}">
-                                            @csrf
-                                        </form>
-                                        
-                                    @else
-                                        <a href="#">Mi cuenta ({{Auth::user()->name}})</a>
-                                        <a href="{{route('admin.dashboard')}}">Dashboard</a>
-                                        <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                        <form id="logout-form" method="POST" action="{{route('logout')}}">
-                                            @csrf
-                                        </form>
-                                    @endif
-                                @else
-                                    <a href="{{route('login')}}">Login</a>
-                                    <a href="{{route('register')}}">Register</a>
-                                @endif
-
-                            @endif
-
-                        </div>
                     </div>
                 </div>
             </div>
@@ -291,6 +292,8 @@
     <script src="{{asset('plantilla/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('plantilla/js/jquery.nicescroll.min.js')}}"></script>
     <script src="{{asset('plantilla/js/main.js')}}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     @livewireScripts
 </body>
 
