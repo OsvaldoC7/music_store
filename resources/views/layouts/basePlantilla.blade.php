@@ -57,7 +57,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="/">Home</a></li>
-                            <li><a href="/shop">Shop</a></li>
+                            <li><a href="/articulos">Shop</a></li>
                             <li><a href="/product">Product Details</a></li>
                             <li><a href="/cart">Cart</a></li>
                             <li><a href="/checkout">Checkout</a></li>
@@ -132,7 +132,7 @@
     </header>
     <!-- Header Section End -->
 
-    {{$slot}}
+    @yield('contenido')
 
     <!-- Instagram Begin -->
     <div class="instagram">

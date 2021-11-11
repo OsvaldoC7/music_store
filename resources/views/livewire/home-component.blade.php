@@ -1,3 +1,7 @@
+@extends('layouts.basePlantilla');
+
+@section('contenido')
+
 <!-- Categories Section Begin -->
 <section class="categories">
     <div class="container-fluid">
@@ -550,3 +554,5 @@
 </div>
 </section>
 <!-- Services Section End -->
+
+@endsection
