@@ -21,7 +21,7 @@ class ArticuloController extends Controller {
     public function index() {
 
         $articulos = Articulo::all();
-        return view('articulo.index')->with('articulos', $articulos);
+        return view('livewire.shop-component')->with('articulos', $articulos);
         
     }
 

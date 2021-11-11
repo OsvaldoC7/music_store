@@ -36,15 +36,7 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__close">+</div>
-        <ul class="offcanvas__widget">
-            <li><span class="icon_search search-switch"></span></li>
-            <li><a href="#"><span class="icon_heart_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
-                <div class="tip">2</div>
-            </a></li>
-        </ul>
+        
         <div class="offcanvas__logo">
             <a href="/"><img src="{{asset('plantilla/img/logo.png')}}" alt=""></a>
         </div>
@@ -82,15 +74,8 @@
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <div class="header__left header__menu">
+                    <div class="header__right header__menu">
                         <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
                             <li>
                                 <a href="#"><span class=""></span>
                                     <ion-icon name="person-outline"></ion-icon>
@@ -112,7 +97,7 @@
                                                 
                                             @else
                                                 <li><a href="#">Mi cuenta ({{Auth::user()->name}})</a></li>
-                                                <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                                <li><a href="{{route('user.dashboard')}}">Dashboard</a></li>
                                                 <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                                 <form id="logout-form" method="POST" action="{{route('logout')}}">
                                                     @csrf
@@ -127,6 +112,14 @@
                                 </ul>
                                 
                             </li>
+                            <li><span class="icon_search search-switch"></span></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span>
+                                <div class="tip">2</div>
+                            </a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span>
+                                <div class="tip">2</div>
+                            </a></li>
+                            
                         </ul>
                     
                     </div>
@@ -149,7 +142,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{asset('plantilla/img/instagram/insta-1.jpg')}}">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@music_store</a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +150,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{asset('plantilla/img/instagram/insta-2.jpg')}}">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@music_store</a>
                         </div>
                     </div>
                 </div>
@@ -165,7 +158,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{asset('plantilla/img/instagram/insta-3.jpg')}}">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@music_store</a>
                         </div>
                     </div>
                 </div>
@@ -173,7 +166,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{asset('plantilla/img/instagram/insta-4.jpg')}}">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@music_store</a>
                         </div>
                     </div>
                 </div>
@@ -181,7 +174,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{asset('plantilla/img/instagram/insta-5.jpg')}}">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@music_store</a>
                         </div>
                     </div>
                 </div>
@@ -189,7 +182,7 @@
                     <div class="instagram__item set-bg" data-setbg="{{asset('plantilla/img/instagram/insta-6.jpg')}}">
                         <div class="instagram__text">
                             <i class="fa fa-instagram"></i>
-                            <a href="#">@ ashion_shop</a>
+                            <a href="#">@music_store</a>
                         </div>
                     </div>
                 </div>
@@ -222,10 +215,10 @@
                     <div class="footer__widget">
                         <h6>Quick links</h6>
                         <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Blogs</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="{{route('index')}}">About</a></li>
+                            <li><a href="{{route('index')}}">Blogs</a></li>
+                            <li><a href="{{route('index')}}">Contact</a></li>
+                            <li><a href="{{route('index')}}">FAQ</a></li>
                         </ul>
                     </div>
                 </div>
@@ -233,10 +226,10 @@
                     <div class="footer__widget">
                         <h6>Account</h6>
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Orders Tracking</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="{{route('index')}}">My Account</a></li>
+                            <li><a href="{{route('index')}}">Orders Tracking</a></li>
+                            <li><a href="{{route('index')}}">Checkout</a></li>
+                            <li><a href="{{route('index')}}">Wishlist</a></li>
                         </ul>
                     </div>
                 </div>
@@ -261,7 +254,7 @@
                 <div class="col-lg-12">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     <div class="footer__copyright__text">
-                        <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved</p>
                     </div>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
