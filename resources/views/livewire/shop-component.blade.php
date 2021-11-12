@@ -5,19 +5,27 @@
 <div class="breadcrumb-option">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb__links">
+            <div class="col-12 col-sm-9 col-md-9 col-lg-9">
+                <div class="breadcrumb__links" style="aling-items: center;">
                     <a href="/"><i class="fa fa-home"></i> Home</a>
                     <span>Shop</span>
                 </div>
             </div>
+
+            @auth
+                @if(Auth::user()->utype === 'ADM')
+                    <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                        <div class="" style="display: flex; justify-content:end;"><a href="articulos/create" class="btn btn-primary">Nuevo Articulo</a></div>
+                    </div>
+                @endif
+            @endauth
         </div>
     </div>
 </div>
 <!-- Breadcrumb End -->
 
 <!-- Shop Section Begin -->
-<section class="shop spad">
+<section class="shop spad" style="padding-top: 40px">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-3">
@@ -231,7 +239,6 @@
             </div>
             <div class="col-lg-9 col-md-9">
                 <div class="row">
-
                     
                     @for ($i = sizeof($articulos)-1; $i >= 0; $i--)
                         
@@ -240,7 +247,7 @@
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('plantilla/img/shop/shop-1.jpg')}}">
 
-                                @if($articulos[$i]->id === sizeof($articulos))
+                                @if($i === sizeof($articulos)-1 or $i === sizeof($articulos)-2)
                                     <div class="label new">New</div>
                                 @endif
                                 
@@ -256,9 +263,18 @@
                                
                                         @auth
                                             @if(Auth::user()->utype === 'ADM')
+                                                <!--Boton Eliminar articulo-->
+                                                <li>
+                                                    <form id="delete-item-form" action="{{route('articulos.destroy', $articulos[$i]->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="" style="background: transparent; border: none !important;">
+                                                            <a href="#"><span class="icon_minus_alt2"></span></a>
+                                                        </button>
+                                                    </form>
+                                                </li>
 
-                                                <li><a href="#"><span class="icon_minus_alt2"></span></a></li>
-                                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                                                <li><a href="/articulos/{{$articulos[$i]->id}}/edit"><span class="icon_pencil-edit"></span></a></li>
                                                 
                                             @else
                                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
