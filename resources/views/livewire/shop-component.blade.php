@@ -292,7 +292,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">{{$articulos[$i]->nombre}}</a></h6>
+                                <h6><a href="/articulos/{{$articulos[$i]->id}}">{{$articulos[$i]->nombre}} - {{$articulos[$i]->artista}}</a></h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>

@@ -46,6 +46,7 @@ class ArticuloController extends Controller {
         
         $articulos = new Articulo();
         $articulos->nombre = $request->get('nombre');
+        $articulos->artista = $request->get('artista');
         $articulos->lanzamiento = $request->get('lanzamiento');
         $articulos->descripcion = $request->get('descripcion');
         $articulos->cantidad = $request->get('cantidad');
@@ -67,7 +68,8 @@ class ArticuloController extends Controller {
      */
     public function show($id) {
 
-
+        $articulo = Articulo::find($id);
+        return view('articulo.show')->with('articulo', $articulo);
         
     }
 
@@ -95,6 +97,7 @@ class ArticuloController extends Controller {
         
         $articulo = Articulo::find($id);
         $articulo->nombre = $request->get('nombre');
+        $articulo->artista = $request->get('artista');
         $articulo->lanzamiento = $request->get('lanzamiento');
         $articulo->descripcion = $request->get('descripcion');
         $articulo->cantidad = $request->get('cantidad');

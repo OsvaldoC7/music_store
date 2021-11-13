@@ -58,9 +58,14 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="product__details__text">
-                                    <div class="">
+                                    <div class="mb-3">
                                         <h2><label for="nombre" class="form-lavel">Nombre:</label></h2>
                                         <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1" value="{{$articulo->nombre}}">
+                                    </div>
+
+                                    <div class="">
+                                        <h4><label for="artista" class="form-lavel">Astista:</label></h4>
+                                        <input type="text" class="form-control" id="artista" name="artista" tabindex="1" value="{{$articulo->artista}}">
                                     </div>
                                     
                                     <div class="rating mt-3 mb-1">

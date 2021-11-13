@@ -16,6 +16,7 @@ class CreateArticulosTable extends Migration
         Schema::create('articulos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('artista');
             $table->string('codigo', 15); // Generar el codigo con algun acceso o getAttribute
             $table->date('lanzamiento');
             $table->string('descripcion');
