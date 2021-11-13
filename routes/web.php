@@ -24,9 +24,9 @@ use Illuminate\Support\Facades\Route;
     return view('plantilla.index');
 });*/
 
-/*Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');*/
+})->name('dashboard');
 
 // User
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
@@ -38,7 +38,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authAdmin'])->group(function() {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
 
-Route::resource('articulos', 'App\Http\Controllers\ArticuloController');
+Route::resource('articulos', 'App\Http\Controllers\ArticuloController')->middleware('auth');
 
 Route::get('/', HomeComponent::class)->name('index');
 Route::get('/product', ProductComponent::class)->name('product');
