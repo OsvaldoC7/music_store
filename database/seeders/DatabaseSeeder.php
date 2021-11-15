@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Articulo;
+use App\Models\ArticuloGenero;
 use App\Models\Genero;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -31,7 +32,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(10)->create();
-        Articulo::factory(10)->create();
 
         /* Creando los generos */
         Genero::create([
@@ -63,6 +63,49 @@ class DatabaseSeeder extends Seeder
         ]);
         Genero::create([
             'nombre_genero'=>'Metal'
+        ]);
+
+        Articulo::factory(10)->create();
+
+        ArticuloGenero::create([
+            'articulo_id'=>1,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>2,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>3,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>4,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>5,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>6,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>7,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>8,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>9,
+            'genero_id'=>rand(1, 10)
+        ]);
+        ArticuloGenero::create([
+            'articulo_id'=>10,
+            'genero_id'=>rand(1, 10)
         ]);
 
     }
