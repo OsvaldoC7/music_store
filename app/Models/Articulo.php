@@ -9,6 +9,18 @@ class Articulo extends Model {
 
     use HasFactory;
 
+    protected $fillable = [
+                            'nombre',
+                            'artista',
+                            'codigo', 
+                            'lanzamiento',
+                            'descripcion',
+                            'cantidad',
+                            'precio',
+                            'foto',
+                            'mime'
+                        ];
+
     public function generos() {
 
         return $this->belongsToMany(Genero::class);

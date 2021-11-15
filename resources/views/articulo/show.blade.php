@@ -71,8 +71,12 @@
                                     <p>{{$articulo->lanzamiento}}</p>
                                 </li>
                                 <li>
-                                    <span>Faltan categorias:</span>
-                                    <p>{{$articulo->lanzamiento}}</p>
+                                    <span>Genero:</span>
+                                    <p>
+                                        @foreach ($articulo->generos as $genero)
+                                            {{$genero->nombre_genero}}
+                                        @endforeach
+                                    </p>
                                 </li>
                             </ul>
                         </div>

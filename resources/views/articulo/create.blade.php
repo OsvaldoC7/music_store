@@ -92,7 +92,7 @@
                                                     @foreach ($generos as $genero)
                                                         <label for="{{$genero->nombre_genero}}" class="col-3">
                                                             {{$genero->nombre_genero}}
-                                                            <input type="checkbox" value="{{$genero->id}}" id="{{$genero->nombre_genero}}">
+                                                            <input type="checkbox" name="genero_id[]" value="{{$genero->id}}" id="{{$genero->nombre_genero}}">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     @endforeach
@@ -130,7 +130,7 @@
                 </section>
                 <!-- Product Details Section End -->        
             </form>
-
+            
         @else
             <h2>No tienes permiso para realizar esa accion</h2>
 

@@ -46,7 +46,15 @@ class ArticuloController extends Controller {
      */
     public function store(Request $request) {
         
-        $articulos = new Articulo();
+        $request->merge([
+            'codigo' => 'codigo_preuba',
+            'mime' => 'mime_prueba'
+        ]);
+
+        $articulo = Articulo::create($request->all());
+        $articulo->generos()->attach($request->genero_id);
+
+        /*$articulos = new Articulo();
 
         $articulos->generos()->attach($request->genero_id);
 
@@ -60,7 +68,7 @@ class ArticuloController extends Controller {
         $articulos->codigo = 'codigo_preuba'; // VER COMO GENERAR UN CODIGO
         $articulos->mime = 'mime_prueba'; // VER COMO GUARDAR MIME
 
-        $articulos->save();
+        $articulos->save();*/
         return redirect('/articulos');
 
     }
@@ -84,10 +92,10 @@ class ArticuloController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit(Articulo $articulo) {
         
-        $articulo = Articulo::find($id);
-        return view('articulo.edit')->with('articulo', $articulo);
+        $generos = Genero::All();
+        return view('articulo.edit', compact('articulo', 'generos'));
 
     }
 
@@ -98,9 +106,17 @@ class ArticuloController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, Articulo $articulo) {
         
-        $articulo = Articulo::find($id);
+        $request->merge([
+            'codigo' => 'codigo_preuba',
+            'mime' => 'mime_prueba'
+        ]);
+
+        Articulo::where('id', $articulo->id)->update($request->except('_token', '_method', 'genero_id'));
+        $articulo->generos()->sync($request->genero_id);
+        
+        /*$articulo = Articulo::find($id);
         $articulo->nombre = $request->get('nombre');
         $articulo->artista = $request->get('artista');
         $articulo->lanzamiento = $request->get('lanzamiento');
@@ -111,7 +127,7 @@ class ArticuloController extends Controller {
         $articulo->codigo = 'codigo_preuba'; // VER COMO GENERAR UN CODIGO
         $articulo->mime = 'mime_prueba'; // VER COMO GUARDAR MIME
 
-        $articulo->save();
+        $articulo->save();*/
         return redirect('/articulos');
 
     }

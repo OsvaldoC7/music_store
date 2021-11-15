@@ -90,12 +90,16 @@
                                         <ul>
                                             <li tabindex="4">
                                                 <span>Generos:</span>
-                                                <div class="stock__checkbox">
-                                                    <label for="stockin">
-                                                        In Stock
-                                                        <input type="checkbox" id="stockin">
-                                                        <span class="checkmark"></span>
-                                                    </label>
+                                                <div class="stock__checkbox row">
+
+                                                    @foreach ($generos as $genero)
+                                                        <label for="{{$genero->nombre_genero}}" class="col-3">
+                                                            {{$genero->nombre_genero}}
+                                                            <input type="checkbox" name="genero_id[]" value="{{$genero->id}}" id="{{$genero->nombre_genero}}" {{array_search($genero->id, $articulo->generos->pluck('id')->toArray()) !== false ? 'checked' : ''}}>
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    @endforeach
+
                                                 </div>
                                             </li>
                                             <li>
