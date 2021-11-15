@@ -4,7 +4,7 @@
     @auth
         @if(Auth::user()->utype === 'ADM')
 
-            <form action="/articulos" method="post" id="create-form">
+            <form action="/articulos" method="post" id="create-form" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Breadcrumb Begin -->
@@ -51,6 +51,10 @@
                                             <img data-hash="product-4" class="product__big__img" src="{{asset('plantilla/img/product/details/product-4.jpg')}}" alt="">
                                         </div>
                                     </div>
+                                </div>
+                                <div class=""><!----------- VER COMO SUBIR LA FOTO A LA BASE DE DATOS-------->
+                                    <label for="foto" class="form-lavel">Foto</label>
+                                    <input type="file" class="form-control" id="foto" name="foto" tabindex="7">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -116,11 +120,6 @@
                                     <div class="product__details__button" style="display: flex; justify-content:end;">
                                         <a href="/articulos" class="cart-btn" tabindex="8"><span class="icon_bag_alt"></span> Cancelar</a>
                                         <a href="#" class="cart-btn" onclick="event.preventDefault(); document.getElementById('create-form').submit();" tabindex="9"><span class="icon_bag_alt"></span> Guardar</a>
-                                    </div>
-
-                                    <div class=""><!----------- VER COMO SUBIR LA FOTO A LA BASE DE DATOS-------->
-                                        <label for="foto" class="form-lavel">Foto</label>
-                                        <input type="text" class="form-control" id="foto" name="foto" tabindex="7">
                                     </div>
 
                                 </div>

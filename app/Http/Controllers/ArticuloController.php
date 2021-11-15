@@ -45,10 +45,26 @@ class ArticuloController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+
+        $request->validate([
+
+            'nombre' => 'required|max:255',
+            'artista' => 'required|max:255',
+            'lanzamiento' => 'required',
+            'descripcion' => 'required',
+            'cantidad' => 'required',
+            'precio' => 'required',
+            'foto' => 'required|image'
+
+        ]);
+
+        $nombreFoto = time() . '-' . $request->nombre . '.' . $request->foto->extension();
+        $request->foto->move(public_path('articulosFotos'), $nombreFoto);
         
         $request->merge([
+            'foto' => $nombreFoto,
             'codigo' => 'codigo_preuba',
-            'mime' => 'mime_prueba'
+            'mime' => $nombreFoto,
         ]);
 
         $articulo = Articulo::create($request->all());
@@ -108,6 +124,18 @@ class ArticuloController extends Controller {
      */
     public function update(Request $request, Articulo $articulo) {
         
+        $request->validate([
+
+            'nombre' => 'required|max:255',
+            'artista' => 'required|max:255',
+            'lanzamiento' => 'required',
+            'descripcion' => 'required',
+            'cantidad' => 'required',
+            'precio' => 'required',
+            //'foto' => 'required'
+
+        ]);
+
         $request->merge([
             'codigo' => 'codigo_preuba',
             'mime' => 'mime_prueba'
