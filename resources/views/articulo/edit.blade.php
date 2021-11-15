@@ -89,7 +89,7 @@
                                     <div class="product__details__widget" style="padding: 20px 0px;">
                                         <ul>
                                             <li tabindex="4">
-                                                <span>Categorias:</span>
+                                                <span>Generos:</span>
                                                 <div class="stock__checkbox">
                                                     <label for="stockin">
                                                         In Stock

@@ -86,13 +86,17 @@
                                     <div class="product__details__widget" style="padding: 20px 0px;">
                                         <ul>
                                             <li tabindex="4">
-                                                <span>Categorias:</span>
-                                                <div class="stock__checkbox">
-                                                    <label for="stockin">
-                                                        In Stock
-                                                        <input type="checkbox" id="stockin">
-                                                        <span class="checkmark"></span>
-                                                    </label>
+                                                <span>Generos:</span>
+                                                <div class="stock__checkbox row">
+
+                                                    @foreach ($generos as $genero)
+                                                        <label for="{{$genero->nombre_genero}}" class="col-3">
+                                                            {{$genero->nombre_genero}}
+                                                            <input type="checkbox" value="{{$genero->id}}" id="{{$genero->nombre_genero}}">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    @endforeach
+
                                                 </div>
                                             </li>
                                             <li>

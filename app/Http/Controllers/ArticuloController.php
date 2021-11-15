@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Articulo;
+use App\Models\Genero;
 
 class ArticuloController extends Controller {
 
@@ -32,7 +33,8 @@ class ArticuloController extends Controller {
      */
     public function create() {
         
-        return view('articulo.create');
+        $generos = Genero::all();
+        return view('articulo.create')->with('generos', $generos);
 
     }
 
@@ -45,6 +47,9 @@ class ArticuloController extends Controller {
     public function store(Request $request) {
         
         $articulos = new Articulo();
+
+        $articulos->generos()->attach($request->genero_id);
+
         $articulos->nombre = $request->get('nombre');
         $articulos->artista = $request->get('artista');
         $articulos->lanzamiento = $request->get('lanzamiento');
