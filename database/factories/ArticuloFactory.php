@@ -28,8 +28,8 @@ class ArticuloFactory extends Factory {
             'cantidad'=>$this->faker->randomNumber(3, false),
             'precio'=>$this->faker->randomFloat(2, 10, 1500),
             'codigo'=>'codigo_preuba',
-            'foto'=>'1',
-            'mime'=>'mime_prueba'
+            'foto_ruta'=>'1.jpg',
+            'foto'=>'1.jpg'
         ];
     }
 }

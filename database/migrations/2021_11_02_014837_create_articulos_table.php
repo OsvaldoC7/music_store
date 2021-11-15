@@ -19,11 +19,11 @@ class CreateArticulosTable extends Migration
             $table->string('artista');
             $table->string('codigo', 15); // Generar el codigo con algun acceso o getAttribute
             $table->date('lanzamiento');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->integer('cantidad');
             $table->decimal('precio', 6, 2);
+            $table->string('foto_ruta');
             $table->string('foto');
-            $table->string('mime', 30);
             $table->timestamps();
         });
     }

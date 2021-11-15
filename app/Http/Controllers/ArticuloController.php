@@ -54,7 +54,7 @@ class ArticuloController extends Controller {
             'descripcion' => 'required',
             'cantidad' => 'required',
             'precio' => 'required',
-            'foto' => 'required|image'
+            'foto' => 'required|image',
 
         ]);
 
@@ -62,9 +62,8 @@ class ArticuloController extends Controller {
         $request->foto->move(public_path('articulosFotos'), $nombreFoto);
         
         $request->merge([
-            'foto' => $nombreFoto,
+            'foto_ruta' => $nombreFoto,
             'codigo' => 'codigo_preuba',
-            'mime' => $nombreFoto,
         ]);
 
         $articulo = Articulo::create($request->all());
@@ -138,7 +137,6 @@ class ArticuloController extends Controller {
 
         $request->merge([
             'codigo' => 'codigo_preuba',
-            'mime' => 'mime_prueba'
         ]);
 
         Articulo::where('id', $articulo->id)->update($request->except('_token', '_method', 'genero_id'));

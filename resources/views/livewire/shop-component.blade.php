@@ -245,7 +245,7 @@
                     
                     <div class="col-lg-4 col-md-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('articulosFotos/' . $articulos[$i]->foto)}}">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('articulosFotos/' . $articulos[$i]->foto_ruta)}}">
 
                                 @if($i === sizeof($articulos)-1 or $i === sizeof($articulos)-2)
                                     <div class="label new">New</div>

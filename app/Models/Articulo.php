@@ -17,8 +17,8 @@ class Articulo extends Model {
                             'descripcion',
                             'cantidad',
                             'precio',
-                            'foto',
-                            'mime'
+                            'foto_ruta',
+                            'foto'
                         ];
 
     public function generos() {
