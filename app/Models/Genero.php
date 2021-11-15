@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Genero extends Model {
 
     use HasFactory;
+    public $timestamps = false;
 
     public function articulos() {
 
