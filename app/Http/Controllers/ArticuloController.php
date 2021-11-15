@@ -58,7 +58,7 @@ class ArticuloController extends Controller {
 
         ]);
 
-        $nombreFoto = time() . '-' . $request->nombre . '.' . $request->foto->extension();
+        $nombreFoto = time() . '-' . $request->nombre[0] . $request->artista[0] . $request->cantidad . '.' . $request->foto->extension();
         $request->foto->move(public_path('articulosFotos'), $nombreFoto);
         
         $request->merge([
@@ -131,9 +131,19 @@ class ArticuloController extends Controller {
             'descripcion' => 'required',
             'cantidad' => 'required',
             'precio' => 'required',
-            //'foto' => 'required'
 
         ]);
+
+        if($request->foto != '')
+        {
+            $nombreFoto = time() . '-' . $request->nombre[0] . $request->artista[0] . $request->cantidad . '.' . $request->foto->extension();
+            $request->foto->move(public_path('articulosFotos'), $nombreFoto);
+
+            $request->merge([
+                'foto_ruta' => $nombreFoto,
+            ]);
+            
+        }
 
         $request->merge([
             'codigo' => 'codigo_preuba',

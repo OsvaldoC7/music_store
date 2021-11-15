@@ -31,28 +31,24 @@
                                 <div class="product__details__pic">
                                     <div class="product__details__pic__left product__thumb nice-scroll">
                                         <a class="pt active" href="#product-1">
-                                            <img src="{{asset('plantilla/img/product/details/thumb-1.jpg')}}" alt="">
+                                            <img src="{{asset('articulosFotos/sube_tu_foto.png')}}" alt="">
                                         </a>
                                         <a class="pt" href="#product-2">
-                                            <img src="{{asset('plantilla/img/product/details/thumb-2.jpg')}}" alt="">
+                                            <img src="{{asset('articulosFotos/sube_tu_foto.png')}}" alt="">
                                         </a>
                                         <a class="pt" href="#product-3">
-                                            <img src="{{asset('plantilla/img/product/details/thumb-3.jpg')}}" alt="">
-                                        </a>
-                                        <a class="pt" href="#product-4">
-                                            <img src="{{asset('plantilla/img/product/details/thumb-4.jpg')}}" alt="">
+                                            <img src="{{asset('articulosFotos/sube_tu_foto.png')}}" alt="">
                                         </a>
                                     </div>
                                     <div class="product__details__slider__content">
                                         <div class="product__details__pic__slider owl-carousel">
-                                            <img data-hash="product-1" class="product__big__img" src="{{asset('plantilla/img/product/details/product-1.jpg')}}" alt="">
-                                            <img data-hash="product-2" class="product__big__img" src="{{asset('plantilla/img/product/details/product-3.jpg')}}" alt="">
-                                            <img data-hash="product-3" class="product__big__img" src="{{asset('plantilla/img/product/details/product-2.jpg')}}" alt="">
-                                            <img data-hash="product-4" class="product__big__img" src="{{asset('plantilla/img/product/details/product-4.jpg')}}" alt="">
+                                            <img data-hash="product-1" class="product__big__img" src="{{asset('articulosFotos/sube_tu_foto.png')}}" alt="">
+                                            <img data-hash="product-2" class="product__big__img" src="{{asset('articulosFotos/sube_tu_foto.png')}}" alt="">
+                                            <img data-hash="product-3" class="product__big__img" src="{{asset('articulosFotos/sube_tu_foto.png')}}" alt="">
                                         </div>
                                     </div>
                                 </div>
-                                <div class=""><!----------- VER COMO SUBIR LA FOTO A LA BASE DE DATOS-------->
+                                <div class="">
                                     <label for="foto" class="form-lavel">Foto</label>
                                     <input type="file" class="form-control" id="foto" name="foto" tabindex="7">
                                 </div>
@@ -89,7 +85,17 @@
                                     
                                     <div class="product__details__widget" style="padding: 20px 0px;">
                                         <ul>
-                                            <li tabindex="4">
+                                            <li class="row">
+                                                <div class="col-6">
+                                                    <span><label for="lanzamiento" class="form-lavel">Lanzamiento:</label></span>
+                                                    <input type="date" class="form-control" id="lanzamiento" name="lanzamiento" tabindex="4">
+                                                </div>
+                                                <div class="col-6">
+                                                    <span><label for="cantidad" class="form-lavel">Cantidad:</label></span>
+                                                    <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="5">
+                                                </div>
+                                            </li>
+                                            <li tabindex="6">
                                                 <span>Generos:</span>
                                                 <div class="stock__checkbox row">
 
@@ -101,18 +107,6 @@
                                                         </label>
                                                     @endforeach
 
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="">
-                                                    <span><label for="lanzamiento" class="form-lavel">Lanzamiento:</label></span>
-                                                    <input type="date" class="form-control" id="lanzamiento" name="lanzamiento" tabindex="5">
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="">
-                                                    <span><label for="cantidad" class="form-lavel">Cantidad:</label></span>
-                                                    <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="6">
                                                 </div>
                                             </li>
                                         </ul>
