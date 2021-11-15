@@ -45,12 +45,14 @@
                                     <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <ul>
-                                                <li><a href="#">Coats</a></li>
-                                                <li><a href="#">Jackets</a></li>
-                                                <li><a href="#">Dresses</a></li>
-                                                <li><a href="#">Shirts</a></li>
-                                                <li><a href="#">T-shirts</a></li>
-                                                <li><a href="#">Jeans</a></li>
+                                                <li><a href="/articulos">Todos</a></li>
+                                                @foreach ($generos as $genero)
+                                                    <li>
+                                                        <a href="{{ route('articulos.articulos_genero', $genero) }}">
+                                                            {{ $genero->nombre_genero }}
+                                                        </a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>

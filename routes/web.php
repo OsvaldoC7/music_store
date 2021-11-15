@@ -7,6 +7,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ProductComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Models\Genero;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,13 @@ Route::middleware(['auth:sanctum', 'verified', 'authAdmin'])->group(function() {
 });
 
 Route::resource('articulos', 'App\Http\Controllers\ArticuloController')->middleware('auth');
+
+Route::get('articulos/genero/{genero}', function(Genero $genero){
+    $generos = Genero::all();
+    $articulos = $genero->articulos;
+    
+    return view('livewire.shop-component', compact('articulos','generos'));
+})->name('articulos.articulos_genero');
 
 Route::get('/', HomeComponent::class)->name('index');
 Route::get('/product', ProductComponent::class)->name('product');
