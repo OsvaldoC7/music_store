@@ -245,7 +245,14 @@
                     
                     <div class="col-lg-4 col-md-6">
                         <div class="product__item">
+                            
+                            @if($articulos[$i]->foto === 'faker')
+                            <div class="product__item__pic set-bg" data-setbg="{{$articulos[$i]->foto_ruta}}">
+                            @else
                             <div class="product__item__pic set-bg" data-setbg="{{asset('articulosFotos/' . $articulos[$i]->foto_ruta)}}">
+                            @endif
+
+                            
 
                                 @if($i === sizeof($articulos)-1 or $i === sizeof($articulos)-2)
                                     <div class="label new">New</div>
