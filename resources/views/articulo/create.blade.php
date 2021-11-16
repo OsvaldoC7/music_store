@@ -50,19 +50,19 @@
                                 </div>
                                 <div class="">
                                     <label for="foto" class="form-lavel">Foto</label>
-                                    <input type="file" class="form-control" id="foto" name="foto" tabindex="7">
+                                    <input type="file" class="form-control" id="foto" name="foto" tabindex="7" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="product__details__text">
                                     <div class="mb-3">
                                         <h2><label for="nombre" class="form-lavel">Nombre:</label></h2>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1" required>
                                     </div>
 
                                     <div class="">
                                         <h4><label for="artista" class="form-lavel">Astista:</label></h4>
-                                        <input type="text" class="form-control" id="artista" name="artista" tabindex="1">
+                                        <input type="text" class="form-control" id="artista" name="artista" tabindex="1" required>
                                     </div>
                                     
                                     <div class="rating mt-3 mb-1">
@@ -75,12 +75,12 @@
                                     <div class="product__details__price mb-3">
                                         <div class="">
                                             <label for="precio" class="form-lavel">Precio:</label>
-                                            <input type="text" class="form-control" id="precio" name="precio" tabindex="2">
+                                            <input type="text" class="form-control" id="precio" name="precio" tabindex="2" required>
                                         </div>
                                     </div>
                                     <div class="">
                                         <label for="descripcion" class="form-lavel">Descripcion:</label>
-                                        <textarea class="form-control" id="descripcion" rows="3" name="descripcion" tabindex="3"></textarea>
+                                        <textarea class="form-control" id="descripcion" rows="3" name="descripcion" tabindex="3" required></textarea>
                                     </div>
                                     
                                     <div class="product__details__widget" style="padding: 20px 0px;">
@@ -88,11 +88,11 @@
                                             <li class="row">
                                                 <div class="col-6">
                                                     <span><label for="lanzamiento" class="form-lavel">Lanzamiento:</label></span>
-                                                    <input type="date" class="form-control" id="lanzamiento" name="lanzamiento" tabindex="4">
+                                                    <input type="date" class="form-control" id="lanzamiento" name="lanzamiento" tabindex="4" required>
                                                 </div>
                                                 <div class="col-6">
                                                     <span><label for="cantidad" class="form-lavel">Cantidad:</label></span>
-                                                    <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="5">
+                                                    <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="5" required>
                                                 </div>
                                             </li>
                                             <li tabindex="6">

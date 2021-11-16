@@ -146,10 +146,6 @@ class ArticuloController extends Controller {
             
         }
 
-        $request->merge([
-            'codigo' => 'codigo_preuba',
-        ]);
-
         Articulo::where('id', $articulo->id)->update($request->except('_token', '_method', 'genero_id'));
         $articulo->generos()->sync($request->genero_id);
         

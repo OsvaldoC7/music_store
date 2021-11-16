@@ -126,7 +126,7 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="/articulos/{{$articulos[$i]->id}}">{{$articulos[$i]->nombre}} - {{$articulos[$i]->artista}}</a></h6>
+                                <h6><a href="/articulos/{{$articulos[$i]->id}}">{{$articulos[$i]->nombre_artista}}</a></h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -141,14 +141,6 @@
                     
                     @endfor
 
-                    <div class="col-lg-12 text-center">
-                        <div class="pagination__option">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -82,12 +82,12 @@
                                 <div class="product__details__text">
                                     <div class="mb-3">
                                         <h2><label for="nombre" class="form-lavel">Nombre:</label></h2>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1" value="{{$articulo->nombre}}">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1" value="{{$articulo->nombre}}" required>
                                     </div>
 
                                     <div class="">
                                         <h4><label for="artista" class="form-lavel">Astista:</label></h4>
-                                        <input type="text" class="form-control" id="artista" name="artista" tabindex="1" value="{{$articulo->artista}}">
+                                        <input type="text" class="form-control" id="artista" name="artista" tabindex="1" value="{{$articulo->artista}}" required>
                                     </div>
                                     
                                     <div class="rating mt-3 mb-1">
@@ -100,12 +100,12 @@
                                     <div class="product__details__price mb-3">
                                         <div class="">
                                             <label for="precio" class="form-lavel">Precio:</label>
-                                            <input type="text" class="form-control" id="precio" name="precio" tabindex="2" value="{{$articulo->precio}}">
+                                            <input type="text" class="form-control" id="precio" name="precio" tabindex="2" value="{{$articulo->precio}}" required>
                                         </div>
                                     </div>
                                     <div class="">
                                         <label for="descripcion" class="form-lavel">Descripcion:</label>
-                                        <textarea class="form-control" id="descripcion" rows="3" name="descripcion" tabindex="3">{{$articulo->descripcion}}</textarea>
+                                        <textarea class="form-control" id="descripcion" rows="3" name="descripcion" tabindex="3" required>{{$articulo->descripcion}}</textarea>
                                     </div>
                                     
                                     <div class="product__details__widget" style="padding: 20px 0px;">
@@ -113,11 +113,11 @@
                                             <li class="row">
                                                 <div class="col-6">
                                                     <span><label for="lanzamiento" class="form-lavel">Lanzamiento:</label></span>
-                                                    <input type="date" class="form-control" id="lanzamiento" name="lanzamiento" tabindex="4" value="{{$articulo->lanzamiento}}">
+                                                    <input type="date" class="form-control" id="lanzamiento" name="lanzamiento" tabindex="4" value="{{$articulo->lanzamiento}}" required>
                                                 </div>
                                                 <div class="col-6">
                                                     <span><label for="cantidad" class="form-lavel">Cantidad:</label></span>
-                                                    <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="5" value="{{$articulo->cantidad}}">
+                                                    <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="5" value="{{$articulo->cantidad}}" required>
                                                 </div>
                                             </li>
                                             <li tabindex="6">
