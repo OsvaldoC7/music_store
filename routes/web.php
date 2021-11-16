@@ -8,7 +8,10 @@ use App\Http\Livewire\ProductComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Models\Genero;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +31,31 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/auth/github/redirect', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+Route::get('/auth/github/callback', function () {
+    $githubUser = Socialite::driver('github')->user();
+    
+    $user = User::firstOrCreate(
+        [
+            'provider_id'=>$githubUser->getId(),
+        ],
+        [
+            'email'=>$githubUser->getEmail(),
+            'name'=>$githubUser->getName(),
+            'password'=>Hash::make($githubUser->getName()),
+            'provider_id'=>$githubUser->getId(),
+        ],
+    );
+
+    auth()->login($user, true);
+
+    return redirect('articulos');
+    
+});
 
 // User
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
