@@ -25,6 +25,7 @@ class CreateArticulosTable extends Migration
             $table->string('foto_ruta');
             $table->string('foto');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

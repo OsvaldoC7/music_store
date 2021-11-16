@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Articulo;
 use App\Models\Genero;
+use Illuminate\Support\Facades\File;
 
 class ArticuloController extends Controller {
 
@@ -135,8 +136,13 @@ class ArticuloController extends Controller {
 
         ]);
 
-        if($request->foto != '')
-        {
+        if($request->foto != '') {
+
+            $foto_vieja = "articulosFotos/" . $articulo->foto_ruta;
+            if(File::exists($foto_vieja)) {
+                File::delete($foto_vieja);
+            }
+
             $nombreFoto = time() . '-' . $request->nombre[0] . $request->artista[0] . $request->cantidad . '.' . $request->foto->extension();
             $request->foto->move(public_path('articulosFotos'), $nombreFoto);
 
@@ -174,6 +180,12 @@ class ArticuloController extends Controller {
     public function destroy($id) {
 
         $articulo = Articulo::find($id);
+
+        $imagen = "articulosFotos/" . $articulo->foto_ruta;
+        if(File::exists($imagen)) {
+            File::delete($imagen);
+        }
+
         $articulo->delete();
         return redirect('/articulos');
         
