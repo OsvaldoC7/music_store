@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Articulo;
-use App\Models\ArticuloGenero;
-use App\Models\Genero;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -34,78 +32,19 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
 
         /* Creando los generos */
-        Genero::create([
-            'nombre_genero'=>'Pop'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'Country'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'Rock'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'Electro'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'Folk'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'Indie'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'Clasica'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'Jazz'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'R&B'
-        ]);
-        Genero::create([
-            'nombre_genero'=>'Metal'
+        $this->call([
+            GeneroSeeder::class
         ]);
 
+        /* Creando articulos */
         Articulo::factory(10)->create();
+        $this->call([
+            ArticuloSeeder::class
+        ]);
 
-        ArticuloGenero::create([
-            'articulo_id'=>1,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>2,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>3,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>4,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>5,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>6,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>7,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>8,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>9,
-            'genero_id'=>rand(1, 10)
-        ]);
-        ArticuloGenero::create([
-            'articulo_id'=>10,
-            'genero_id'=>rand(1, 10)
+        /* Creadondo ArticuloGenero tabla pivote */
+        $this->call([
+            ArticuloGeneroSeeder::class
         ]);
 
     }

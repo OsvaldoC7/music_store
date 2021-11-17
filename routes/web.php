@@ -7,6 +7,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ProductComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Models\Articulo;
 use App\Models\Genero;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -76,8 +77,11 @@ Route::get('articulos/genero/{genero}', function(Genero $genero){
     return view('livewire.shop-component', compact('articulos','generos'));
 })->name('articulos.articulos_genero');
 
-Route::get('/', HomeComponent::class)->name('index');
-Route::get('/product', ProductComponent::class)->name('product');
+Route::get('/', function() {
+    $articulos = Articulo::all();
+    return view('livewire.home-component', compact('articulos'));
+    
+})->name('index');
 Route::get('/cart', CartComponent::class)->name('cart');
 Route::get('/shop', ShopComponent::class)->name('shop');
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
