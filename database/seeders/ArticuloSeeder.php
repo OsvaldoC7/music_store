@@ -81,7 +81,7 @@ class ArticuloSeeder extends Seeder
             'codigo'=>'Subido por mi'
         ]);
         Articulo::create([
-            'nombre'=>"Red (Taylor's Version",
+            'nombre'=>"Red (Taylor's Version)",
             'artista'=>'Taylor Swift',
             'lanzamiento'=>'2021-11-12',
             'descripcion'=>"Red (Taylor's Version) es el segundo álbum regrabado de la cantante y compositora estadounidense Taylor Swift, lanzado el 12 de noviembre de 2021 a través de Republic Records.",

@@ -65,6 +65,11 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-9">
+                @if (session('mensaje'))
+                    <div class="alert {{session('class')}}" role="alert">
+                        {{session('mensaje')}}
+                    </div>
+                @endif
                 <div class="row">
                     
                     @for ($i = sizeof($articulos)-1; $i >= 0; $i--)

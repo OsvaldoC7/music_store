@@ -71,22 +71,7 @@ class ArticuloController extends Controller {
         $articulo = Articulo::create($request->all());
         $articulo->generos()->attach($request->genero_id);
 
-        /*$articulos = new Articulo();
-
-        $articulos->generos()->attach($request->genero_id);
-
-        $articulos->nombre = $request->get('nombre');
-        $articulos->artista = $request->get('artista');
-        $articulos->lanzamiento = $request->get('lanzamiento');
-        $articulos->descripcion = $request->get('descripcion');
-        $articulos->cantidad = $request->get('cantidad');
-        $articulos->precio = $request->get('precio');
-        $articulos->foto = $request->get('foto');
-        $articulos->codigo = 'codigo_preuba'; // VER COMO GENERAR UN CODIGO
-        $articulos->mime = 'mime_prueba'; // VER COMO GUARDAR MIME
-
-        $articulos->save();*/
-        return redirect('/articulos');
+        return redirect('/articulos')->with('mensaje', 'Publicacion creada')->with('class', 'alert-success');
 
     }
 
@@ -98,8 +83,23 @@ class ArticuloController extends Controller {
      */
     public function show($id) {
 
+        /*$articulo = Articulo::find($id);
+        $genero = $articulo->generos[0];
+        dd(sizeof($articulo->generos));
+        $articulos = $genero->articulos->except($id);*/
         $articulo = Articulo::find($id);
-        return view('articulo.show')->with('articulo', $articulo);
+
+        $genero = $articulo->generos[0];
+        $articulos = $genero->articulos->except($id);
+        
+        for($i = 1; $i < sizeof($articulo->generos); $i++) {
+            $genero = $articulo->generos[$i];
+            foreach($genero->articulos->except($id) as $valor) {
+                $articulos->push($valor);
+            }
+        }
+
+        return view('articulo.show')->with('articulo', $articulo)->with('articulos', $articulos);
         
     }
 
@@ -155,19 +155,7 @@ class ArticuloController extends Controller {
         Articulo::where('id', $articulo->id)->update($request->except('_token', '_method', 'genero_id'));
         $articulo->generos()->sync($request->genero_id);
         
-        /*$articulo = Articulo::find($id);
-        $articulo->nombre = $request->get('nombre');
-        $articulo->artista = $request->get('artista');
-        $articulo->lanzamiento = $request->get('lanzamiento');
-        $articulo->descripcion = $request->get('descripcion');
-        $articulo->cantidad = $request->get('cantidad');
-        $articulo->precio = $request->get('precio');
-        $articulo->foto = $request->get('foto');
-        $articulo->codigo = 'codigo_preuba'; // VER COMO GENERAR UN CODIGO
-        $articulo->mime = 'mime_prueba'; // VER COMO GUARDAR MIME
-
-        $articulo->save();*/
-        return redirect('/articulos');
+        return redirect('/articulos')->with('mensaje', 'Publicacion actualizada')->with('class', 'alert-primary');
 
     }
 
@@ -187,7 +175,7 @@ class ArticuloController extends Controller {
         }
 
         $articulo->delete();
-        return redirect('/articulos');
+        return redirect('/articulos')->with('mensaje', 'Publicacion eliminada')->with('class', 'alert-danger');
         
     }
 }
