@@ -131,11 +131,13 @@
                                     </div>
                                     
                                     <div class="col-2">
-                                        <form action="{{route('comentarios.destroy', $comentario)}}" method="POST" onsubmit="return confirm('¿Estas seguro de eliminar el comentario?')">
-                                            @method('DELETE')
-                                            @csrf
-                                            <input type="submit" value="X" class="btn cart-btn2">
-                                        </form>
+                                        @can('delete', $comentario)
+                                            <form action="{{route('comentarios.destroy', $comentario)}}" method="POST" onsubmit="return confirm('¿Estas seguro de eliminar el comentario?')">
+                                                @method('DELETE')
+                                                @csrf
+                                                <input type="submit" value="X" class="btn cart-btn2">
+                                            </form>
+                                        @endcan
                                     </div>
                                     
                                 </div>
