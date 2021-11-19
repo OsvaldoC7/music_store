@@ -96,7 +96,14 @@
                                 
 
                                 <ul class="product__hover">
-                                    <li><a href="{{asset('plantilla/img/shop/shop-1.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+
+                                    @if($articulos[$i]->foto === 'faker')
+                                    <li><a href="{{$articulos[$i]->foto_ruta}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                    @else
+                                    <li><a href="{{asset('articulosFotos/' . $articulos[$i]->foto_ruta)}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                    @endif
+
+                                    
                                     
                                     @if(Route::has('login'))
                                
@@ -116,8 +123,8 @@
                                                 <li><a href="/articulos/{{$articulos[$i]->id}}/edit"><span class="icon_pencil-edit"></span></a></li>
                                                 
                                             @else
-                                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                                                <li><a href="/articulos/{{$articulos[$i]->id}}"><span class="icon_heart_alt"></span></a></li>
+                                                <li><a href="/articulos/{{$articulos[$i]->id}}"><span class="icon_bag_alt"></span></a></li>
                                             @endif
                                         @else
                                             <li><a href="#">login</a></li>

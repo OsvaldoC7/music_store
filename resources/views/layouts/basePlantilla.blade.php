@@ -7,7 +7,7 @@
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ashion | Template</title>
+    <title>Music Store</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -58,7 +58,7 @@
                         <ul>
                             <li class="active"><a href="/">Home</a></li>
                             <li><a href="/articulos">Shop</a></li>
-                            <li><a href="/product">Product Details</a></li>
+                            <li><a href="/articulos">Product Details</a></li>
                             <li><a href="/cart">Cart</a></li>
                             <li><a href="/checkout">Checkout</a></li>
                             <li><a href="#">Pages</a>

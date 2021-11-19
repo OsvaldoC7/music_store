@@ -154,9 +154,15 @@
                             @endif
 
                                 <ul class="product__hover">
-                                    <li><a href="{{asset('plantilla/img/product/related/rp-1.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                    <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                    <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+
+                                    @if($articulo->foto === 'faker')
+                                    <li><a href="{{$articulo->foto_ruta}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                    @else
+                                    <li><a href="{{asset('articulosFotos/' . $articulo->foto_ruta)}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                    @endif
+
+                                    <li><a href="/articulos/{{$articulo->id}}"><span class="icon_heart_alt"></span></a></li>
+                                    <li><a href="/articulos/{{$articulo->id}}"><span class="icon_bag_alt"></span></a></li>
                                 </ul>
 
                             </div>

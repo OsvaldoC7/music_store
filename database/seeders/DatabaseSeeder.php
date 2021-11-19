@@ -20,13 +20,15 @@ class DatabaseSeeder extends Seeder
             'name'=>'Admin',
             'email'=>'admin.admin@admin.admin',
             'password'=>Hash::make('123456789'),
-            'utype'=>'ADM'
+            'utype'=>'ADM',
+            'email_verified_at' => now(),
         ]);
 
         User::create([
             'name'=>'Osvaldo',
-            'email'=>'osva.6cruz@gmail.com',
-            'password'=>Hash::make('123456789')
+            'email'=>'osva.cruz@gmail.com',
+            'password'=>Hash::make('123456789'),
+            'email_verified_at' => now(),
         ]);
 
         User::factory(10)->create();
