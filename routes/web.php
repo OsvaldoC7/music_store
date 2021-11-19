@@ -69,6 +69,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authAdmin'])->group(function() {
 });
 
 Route::resource('articulos', 'App\Http\Controllers\ArticuloController')->middleware('auth');
+Route::resource('comentarios', 'App\Http\Controllers\ComentarioController')->middleware('auth');
 
 Route::get('articulos/genero/{genero}', function(Genero $genero){
     $generos = Genero::all();

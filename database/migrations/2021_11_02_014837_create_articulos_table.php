@@ -21,7 +21,7 @@ class CreateArticulosTable extends Migration
             $table->date('lanzamiento');
             $table->text('descripcion');
             $table->integer('cantidad');
-            $table->decimal('precio', 6, 2);
+            $table->decimal('precio', 10, 2);
             $table->string('foto_ruta');
             $table->string('foto');
             $table->timestamps();

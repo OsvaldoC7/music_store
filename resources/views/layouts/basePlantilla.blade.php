@@ -58,16 +58,16 @@
                         <ul>
                             <li class="active"><a href="/">Home</a></li>
                             <li><a href="/articulos">Shop</a></li>
-                            <li><a href="/articulos">Product Details</a></li>
-                            <li><a href="/cart">Cart</a></li>
-                            <li><a href="/checkout">Checkout</a></li>
-                            <li><a href="#">Pages</a>
+                            <li><a href="/articulos/genero/1">Pop</a></li>
+                            <li><a href="/articulos/genero/2">Country</a></li>
+                            <li><a href="/articulos/genero/3">Rock</a></li>
+                            <li><a href="/articulos/genero/4">Electro</a></li>
+                            <li><a href="#">Mas Generos</a>
                                 <ul class="dropdown">
-                                    <li><a href="./blog.html">Blog</a></li>
-                                    <li><a href="./contact.html">Contact</a></li>
-                                    <li><a href="#">Women’s</a></li>
-                                    <li><a href="#">Men’s</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="/articulos/genero/5">Folk</a></li>
+                                    <li><a href="/articulos/genero/6">Indie</a></li>
+                                    <li><a href="/articulos/genero/7">Clasica</a></li>
+                                    <li><a href="/articulos/genero/8">Jazz</a></li>
                                 </ul>
                             </li>
                         </ul>

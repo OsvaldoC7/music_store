@@ -1799,6 +1799,20 @@ ol {
 	margin-bottom: 10px;
 }
 
+.cart-btn2 {
+	display: inline-block;
+	font-size: 14px;
+	color: #ffffff;
+	background: #ca1515;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 14px 30px 15px;
+	border-radius: 50px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
 .product__details__button ul {
 	float: left;
 }
@@ -3648,6 +3662,10 @@ ol {
 		top: 0;
 	}
 	.product__details__button .cart-btn {
+		float: none;
+		margin-right: 0;
+	}
+	.cart-btn2 {
 		float: none;
 		margin-right: 0;
 	}

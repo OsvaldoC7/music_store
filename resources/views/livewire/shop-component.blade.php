@@ -111,7 +111,7 @@
                                             @if(Auth::user()->utype === 'ADM')
                                                 <!--Boton Eliminar articulo-->
                                                 <li>
-                                                    <form id="delete-item-form" action="{{route('articulos.destroy', $articulos[$i]->id)}}" method="POST">
+                                                    <form id="delete-item-form" action="{{route('articulos.destroy', $articulos[$i]->id)}}" method="POST" onsubmit="return confirm('¿Estas seguro de eliminar el articulo?')">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="" style="background: transparent; border: none !important;">

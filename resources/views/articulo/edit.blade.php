@@ -80,6 +80,17 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="product__details__text">
+
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+
                                     <div class="mb-3">
                                         <h2><label for="nombre" class="form-lavel">Nombre:</label></h2>
                                         <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1" value="{{$articulo->nombre}}" required>
@@ -100,7 +111,7 @@
                                     <div class="product__details__price mb-3">
                                         <div class="">
                                             <label for="precio" class="form-lavel">Precio:</label>
-                                            <input type="text" class="form-control" id="precio" name="precio" tabindex="2" value="{{$articulo->precio}}" required>
+                                            <input type="number" class="form-control" id="precio" name="precio" tabindex="2" value="{{$articulo->precio}}" required required min="1" max="99999">
                                         </div>
                                     </div>
                                     <div class="">
@@ -117,7 +128,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <span><label for="cantidad" class="form-lavel">Cantidad:</label></span>
-                                                    <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="5" value="{{$articulo->cantidad}}" required>
+                                                    <input type="number" class="form-control" id="cantidad" name="cantidad" tabindex="5" value="{{$articulo->cantidad}}" required required min="1" max="99999">
                                                 </div>
                                             </li>
                                             <li tabindex="6">
@@ -137,8 +148,9 @@
                                         </ul>
                                     </div>
                                     <div class="product__details__button" style="display: flex; justify-content:end;">
-                                        <a href="/articulos" class="cart-btn" tabindex="8"><span class="icon_bag_alt"></span> Cancelar</a>
-                                        <a href="#" class="cart-btn" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" tabindex="9"><span class="icon_bag_alt"></span> Guardar</a>
+                                        <a href="/articulos" class="cart-btn" tabindex="8">Cancelar</a>
+                                        <!--<a href="#" class="cart-btn" onclick="event.preventDefault(); document.getElementById('edit-form').submit();" tabindex="9"><span class="icon_bag_alt"></span> Guardar</a>-->
+                                        <input type="submit" class="btn cart-btn2" value="Guardar" tabindex="9">
                                     </div>
 
                                 </div>

@@ -118,23 +118,53 @@
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Reviews ( 2 )</a>
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Reviews ( {{sizeof($comentarios)}} )</a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                <h6>Usuario</h6>
-                                <p> Review Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed
-                                    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt loret.
-                                    Neque porro lorem quisquam est, qui dolorem ipsum quia dolor si. Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut loret fugit, sed quia ipsu
-                                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nulla
-                                consequat massa quis enim.</p>
-                            </div>
+
+                            @foreach ($comentarios as $comentario)
+                                <div class="mt-3 row" id="tabs-1" role="tabpanel" style="border-bottom: 1px solid rgb(131, 131, 131)">
+                                    <div class="col-10">
+                                        <h6>{{$comentario->user->name}}</h6>
+                                        <p>{{$comentario->comentario}}</p>
+                                    </div>
+                                    
+                                    <div class="col-2">
+                                        <form action="{{route('comentarios.destroy', $comentario)}}" method="POST" onsubmit="return confirm('¿Estas seguro de eliminar el comentario?')">
+                                            @method('DELETE')
+                                            @csrf
+                                            <input type="submit" value="X" class="btn cart-btn2">
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                                
+                            @endforeach
+                            
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div>
+                <form action="{{route('comentarios.store')}}" method="POST" id="create-form">
+                    @csrf
+                    <input type="hidden" name="articulo_id" value="{{ $articulo->id }}">
+                    <div class="product__details__text">
+                        <div class="">
+                            <label for="comentario" class="form-lavel">Comentario:</label>
+                            <textarea class="form-control" id="comentario" rows="3" name="comentario" tabindex="3" required></textarea>
+                        </div>
+                        
+                        <div class="product__details__button" style="display: flex; justify-content:end;">
+                            <button class="btn btn-primary mt-3">Comentar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="related__title">

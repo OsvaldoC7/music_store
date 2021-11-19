@@ -57,6 +57,7 @@ class ArticuloController extends Controller {
             'cantidad' => 'required',
             'precio' => 'required',
             'foto' => 'required|image',
+            'genero_id' => 'required'
 
         ]);
 
@@ -99,7 +100,9 @@ class ArticuloController extends Controller {
             }
         }
 
-        return view('articulo.show')->with('articulo', $articulo)->with('articulos', $articulos);
+        $comentarios = $articulo->comentarios;
+
+        return view('articulo.show')->with('articulo', $articulo)->with('articulos', $articulos)->with('comentarios', $comentarios);
         
     }
 
@@ -133,6 +136,7 @@ class ArticuloController extends Controller {
             'descripcion' => 'required',
             'cantidad' => 'required',
             'precio' => 'required',
+            'genero_id' => 'required'
 
         ]);
 
