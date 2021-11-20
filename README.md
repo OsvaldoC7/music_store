@@ -1,65 +1,69 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## Creación de tablas desde Sistema.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Tablas creadas con su respectiva migración:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Tabla de artículos
+- Tabla de géneros
+- Tabla pivote artículo_genero
+- Tabla comentarios
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Creación de datos de prueba o catálogos.
 
-## Learning Laravel
+- ArticuloFactory: Genera datos aleatorios para el articulo desde la librería faker.
+- ArticuloGeneroSeeder: Llena la tabla de articulo_genero con datos para que los artículos generados desde el factory tengan géneros asignados desde un principio.
+- ArticuloSeeder: Genera artículos con datos asignados por mí mismo.
+- GeneroSeeder: Genera los géneros los cuales serán asignados a los artículos en una relación muchos a muchos.
+- DatabaseSeeder: Se llama al user_factory para generar usuarios de prueba, así como generar un usuario tipo administrador y un tipo usuario con datos asignados por mí.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Implementar borrado lógico de registros.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Se utilizan el softDelete en mi modelo artículo, de esta manera no desaparece de todo el articulo al borrarlo.
 
-## Laravel Sponsors
+### Registro o creación de cuenta de usuario y autenticación.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Los usuarios tienen la oportunidad de hacer login en la plataforma y sus datos se guardan en la tabla user. El sistema de usuarios funciona mediante Jetstream.
 
-### Premium Partners
+## Restringir, permitir o modificar el comportamiento, opciones o acciones en funciones al tipo de usuario o condiciones.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Los usuarios que no son tipo administrador tienen restringido la creación, actualización o eliminación de artículos, por otro lado, el usuario administrador tiene el permiso de realizar todas estas opciones.
+Los usuarios solo pueden eliminar los comentarios que ellos mismos hayan creado.
 
-## Contributing
+## Validación de formularios.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Los formularios de creación y actualización de artículos están validados, así como el formulario para generar un comentario. Estos formularios muestran mensajes de error en caso de algún dato erróneo.
 
-## Code of Conduct
+## Tema responsivo.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Se utilizo una plantilla responsiva, así como elementos del kit de herramientas de css Bootstrap. En la pantalla principal se muestra la opción de realizar un logout para salir del sistema. Así como menús de navegación y breadcrumbs para una fácil navegación.
 
-## Security Vulnerabilities
+## Uso de ORM.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Se utilizó Eloquent para hacer las consultas, creacion y actualizacion a la base de datos mediante los modelos necesarios (artículos, géneros, comentarios).
 
-## License
+## CRUD.
+
+El controlador del artículo es un controller de tipo resuorce en el cual se pueden realizar las operaciones de creación, lectura, actualización y borrado de los artículos. 
+
+## Archivos.
+
+Se implemento la opción de subir una fotografía para el artículo, esta misma se muestra y lista en varias listas por ejemplo para mostrar todos los artículos, así como mostrar uno solo.
+
+## Relaciones.
+
+- Se implemento la relación uno a muchos entre el articulo y los comentarios.
+- Se implemento la relación muchos a muchos entre los artículos (discos de música) y los géneros (musicales).
+
+## Enviar correo electrónico.
+
+Se envía un correo de verificación al usuario al momento de registrarse en la plataforma.
+
+## Registro con GitHub.
+
+Se implemento el registro de usurarios con la plataforma GitHub.
+
+## License.
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
