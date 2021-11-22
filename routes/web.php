@@ -33,10 +33,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+// GitHub
 Route::get('/auth/github/redirect', function () {
     return Socialite::driver('github')->redirect();
 });
 
+// GitHub
 Route::get('/auth/github/callback', function () {
     $githubUser = Socialite::driver('github')->user();
     
@@ -58,19 +60,21 @@ Route::get('/auth/github/callback', function () {
     
 });
 
-// User
+// User dashboard
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
 });
 
-// Adimin
+// Adimin dashboard
 Route::middleware(['auth:sanctum', 'verified', 'authAdmin'])->group(function() {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
 
+// Articulos y comentarios
 Route::resource('articulos', 'App\Http\Controllers\ArticuloController')->middleware('auth');
 Route::resource('comentarios', 'App\Http\Controllers\ComentarioController')->middleware('auth');
 
+// Filtrar por genero
 Route::get('articulos/genero/{genero}', function(Genero $genero){
     $generos = Genero::all();
     $articulos = $genero->articulos;
@@ -78,11 +82,9 @@ Route::get('articulos/genero/{genero}', function(Genero $genero){
     return view('livewire.shop-component', compact('articulos','generos'));
 })->name('articulos.articulos_genero');
 
+// Inicio
 Route::get('/', function() {
     $articulos = Articulo::all();
     return view('livewire.home-component', compact('articulos'));
     
 })->name('index');
-Route::get('/cart', CartComponent::class)->name('cart');
-Route::get('/shop', ShopComponent::class)->name('shop');
-Route::get('/checkout', CheckoutComponent::class)->name('checkout');

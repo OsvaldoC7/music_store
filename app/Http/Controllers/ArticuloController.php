@@ -84,10 +84,6 @@ class ArticuloController extends Controller {
      */
     public function show($id) {
 
-        /*$articulo = Articulo::find($id);
-        $genero = $articulo->generos[0];
-        dd(sizeof($articulo->generos));
-        $articulos = $genero->articulos->except($id);*/
         $articulo = Articulo::find($id);
 
         $genero = $articulo->generos[0];

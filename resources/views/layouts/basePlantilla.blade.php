@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -56,7 +56,7 @@
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li><a href="/articulos">Shop</a></li>
                             <li><a href="/articulos/genero/1">Pop</a></li>
                             <li><a href="/articulos/genero/2">Country</a></li>
