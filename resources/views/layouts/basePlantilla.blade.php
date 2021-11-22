@@ -200,8 +200,15 @@
                         <div class="footer__logo">
                             <a href="./index.html"><img src="{{asset('plantilla/img/logo.png')}}" alt=""></a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        cilisis.</p>
+                        <p>Music Store es una pagina independiente que con ayuda de nuestros usuarios puede seguir en funcionamiento. Puedes ayudar a la causa regalandonos un cafecito con una sencilla donacion de paypal.</p>
+                        
+                        <div style="position: relative; left: 70px;">
+                        <form action="https://www.paypal.com/donate" method="post" target="_top">
+                            <input type="hidden" name="hosted_button_id" value="5Q6JQ9YJY7XL4" />
+                            <input type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donar con el botón PayPal" />
+                            <img alt="" border="0" src="https://www.paypal.com/es_MX/i/scr/pixel.gif" width="1" height="1" />
+                        </form></div>
+                            
                         <div class="footer__payment">
                             <a href="#"><img src="{{asset('plantilla/img/payment/payment-1.png')}}" alt=""></a>
                             <a href="#"><img src="{{asset('plantilla/img/payment/payment-2.png')}}" alt=""></a>

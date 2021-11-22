@@ -100,16 +100,8 @@
                         </div>
 
                         <div class="product__details__button">
-                            <div class="quantity">
-                                <span>Cantidad:</span>
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div>
-                            <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> Agregar al Carrito</a>
-                            <ul>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            </ul>
+                            <div class="product__details__price mb-2">Disponible en tiendas.</div>
+                            <p class="mb-2">Escribe una reseña abajo.</p>
                         </div>
 
                     </div>
