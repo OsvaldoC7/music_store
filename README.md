@@ -64,6 +64,10 @@ Se envía un correo de verificación al usuario al momento de registrarse en la 
 
 Se implemento el registro de usurarios con la plataforma GitHub.
 
+## Donaciones con PayPal.
+
+Se implementaron donaciones con PayPal.
+
 ## License.
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
