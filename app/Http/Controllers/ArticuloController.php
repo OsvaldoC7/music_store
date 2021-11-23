@@ -170,8 +170,12 @@ class ArticuloController extends Controller {
         $articulo = Articulo::find($id);
 
         $imagen = "articulosFotos/" . $articulo->foto_ruta;
-        if(File::exists($imagen)) {
-            File::delete($imagen);
+        $subidaPorMi = $articulo->foto == "Subida por mi" ? true : false;
+        
+        if($subidaPorMi === false) {
+            if(File::exists($imagen)) {
+                File::delete($imagen);
+            }
         }
 
         $articulo->delete();
