@@ -80,7 +80,7 @@ Route::get('articulos/genero/{genero}', function(Genero $genero){
     $articulos = $genero->articulos;
     
     return view('livewire.shop-component', compact('articulos','generos'));
-})->name('articulos.articulos_genero');
+})->name('articulos.articulos_genero')->middleware('auth');
 
 // Inicio
 Route::get('/', function() {
